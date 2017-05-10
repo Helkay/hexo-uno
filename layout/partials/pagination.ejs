@@ -1,0 +1,24 @@
+
+<nav id="pagination" class="pagination">
+  <% if (page.prev_link) { %>
+    <a href="<%=url_for(page.prev_link)%>" class="posts newer btn small"">← 上一页</a>
+  <% } else if (page.prev && page.prev.path) { %>
+    <a href="<%=url_for(page.prev.path)%>" class="posts newer btn small">← 上一页</a>
+  <% } else if (page.current === 2 && page.current_url == 'page/2/') {%>
+    <a href="<%=config.root%>#blog" class="posts newer btn small">← 上一页</a>
+  <% } %>
+
+  <% if (typeof page.current === 'number' && typeof page.total === 'number') { %>
+    <span class="pagination__page-number">
+      Page <%=page.current%> of <%=page.total%>
+    </span>
+
+  <% } %>
+
+  <% if (page.next_link) { %>
+    <a href="<%=url_for(page.next_link)%>" class="posts newer btn small">下一页 →</a>
+  <% } else if (page.next && page.next.path) { %>
+    <a href="<%=url_for(page.next.path)%>" class="posts newer btn small">下一页 →</a>
+  <% } %>
+</nav>
+

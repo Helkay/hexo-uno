@@ -1,0 +1,23 @@
+
+<div id="category" class="cate" style="display: block;border-bottom: 1px dashed #ccc;">  
+    <h1> <%=page.category%> </h1> 
+
+    <ul> <!-- create the list of posts -->
+      <!-- iterate through all the posts on the site --> 
+      <% page.posts.each(function(article) { %>
+        <!-- list only those which contain the current tag --> 
+
+        <% if (article.link) { %>
+         <li>
+              <a href="<%=url_for(article.link)%>" target="_blank"><%=article.title || 'No Title'%></a>
+         </li>
+        <% } else { %>
+         <li>
+          <a href="<%=url_for(article.path)%>">
+            <%=article.title || 'No Title'%>
+          </a>
+         </li>
+        <% } %>
+     <% }); %>
+    </ul>
+</div>

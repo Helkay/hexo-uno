@@ -1,0 +1,28 @@
+<div class="main-post-list">
+
+  <ol class="post-list">
+    <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+      <li>
+        <h2 class="post-list__post-title post-title" style="border-bottom:none;">
+          <a href="<%=config.root + post.path%>" title="<%=post.title%>"><%=post.title%></a>
+        </h2>
+        <div class="post-list__meta">
+          <time datetime="<%=post.date%>" class="post-list__meta--date date"><%- date(post.date, 'YYYY-MM-DD') %></time> &#8226; 
+          <span class="post-meta__tags">on
+                
+              <% post.categories.each(function(category) {%>
+                 <a href="<%=config.root%>categories/<%=category.name%>/"><%=category.name%></a> 
+              <% }); %>
+             
+          </span>
+        </div>
+      </li>
+    <% }); %>
+  </ol>
+
+  <hr class="post-list__divider ">
+
+  <%-partial('partials/pagination')%>
+
+</div>
+

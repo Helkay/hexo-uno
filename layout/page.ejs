@@ -1,0 +1,13 @@
+
+<article id="page">
+	
+	<% if (page.title =='categories'){%>
+	
+		<%-partial('widget/categories')%>	
+
+	<% } else if(page.title =='tags'){ %>
+
+		<%-partial('widget/tags')%>
+
+	<% } %>
+</article>

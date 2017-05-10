@@ -1,0 +1,7 @@
+
+	<h2 style="text-align:center">共计<%=site.tags.length%>个标签</h2>
+	<div class="tags" style="border-bottom: 1px dashed #ccc;padding-bottom: 1em;"> 
+	<% site.tags.each(function(tag){ %>
+		<a href="<%=config.root%>tags/<%=tag.name%>/" id="alltag" class="tagsss"><%=tag.name%></a>
+	<% }); %>
+	</div>
