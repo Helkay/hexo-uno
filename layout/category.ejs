@@ -1,4 +1,53 @@
 
+<%  
+    var year = null;    
+%>
+
+<% if(page.category == 'Blog'){ %>
+
+    <section id="posts" class="posts-collapse" style="position: relative;z-index: 1010;">
+        <span class="archive-move-on"></span>
+
+          <% site.categories.each(function(cate) { if(cate.name == 'Blog') { %>
+              
+              <span class="archive-page-counter"> 
+                目前共计 <%=cate.length %> 篇日志
+              </span>
+              
+          <% }}); %>
+               
+      <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+        <% if(date(post.date, 'YYYY') != year){  year = date(post.date, 'YYYY') %>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016" style="opacity: 1; display: block; transform: translateX(0px);border-bottom:none"><%=year%></h2>
+        </div> 
+        <% } %> 
+
+        <% post.categories.each(function(category) {%>
+            <% if(category.name == 'Blog'){ %>
+                <article class="post post-type-normal" itemscope="" style="opacity: 1; display: block; transform: translateY(0px);">
+          <header class="post-header">
+            <h1 class="post-title">
+                  <a class="post-title-link" href="<%=config.root + post.path%>">        
+                      <span><%=post.title%></span>       
+                  </a>
+            </h1>
+            <div class="post-meta">
+              <time class="post-time" datetime="<%- date(post.date, 'YYYY-MM-DD') %>" content="<%- date(post.date, 'YYYY-MM-DD') %>">
+                <%- date(post.date, 'MM-DD') %>
+              </time>
+            </div>
+          </header>
+        </article>
+            <% } %> 
+        <% }); %>
+      <% }); %>
+
+    </section>
+
+<% } else { %>
+
+
 <div id="category" class="cate" style="display: block;border-bottom: 1px dashed #ccc;">  
     <h1> <%=page.category%> </h1> 
 
@@ -21,3 +70,8 @@
      <% }); %>
     </ul>
 </div>
+
+<% } %> 
+
+
+<%- partial('partials/pagination')%>

@@ -1,8 +1,0 @@
-	
-	<h2 style="text-align:center">共计<%=site.categories.length%>个分类</h2>
-	<div class="categories" style="border-bottom: 1px dashed #ccc;padding-bottom: 1em;"> 
-	<% site.categories.each(function(cate){ %>
-		<a href="<%=config.root%>categories/<%=cate.name%>/" id="allcate" class="tagsss"><%=cate.name%></a>
-	<% }); %>
-	</div>
-	
