@@ -10,8 +10,8 @@
           <time datetime="<%=post.date%>" class="post-list__meta--date date"><%- date(post.date, 'YYYY-MM-DD') %></time> &#8226; 
           <span class="post-meta__tags">on
                 
-              <% post.categories.each(function(category) {%>
-                 <a href="<%=config.root%>categories/<%=category.name%>/"><%=category.name%></a> 
+              <% post.tags.each(function(tag) {%>
+                 <a href="<%=config.root%>tags/<%=tag.name%>/"><%=tag.name%></a> 
               <% }); %>
              
           </span>

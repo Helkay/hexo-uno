@@ -1,14 +1,14 @@
 
-<div id="tag" class="cate" style="display: block;border-bottom: 1px dashed #ccc;">  
+<div id="tag" class="cate" >  
     <h1> <%=page.tag%> </h1> 
     <ul> 
       <% page.posts.each(function(article) { %>
         <% if (article.link) { %>
-         <li>
+         <li style="border-bottom: 1px dashed #ccc;margin-bottom:10px;padding-bottom:10px;">
               <a href="<%=url_for(article.link)%>" target="_blank"><%=article.title || 'No Title'%></a>
          </li>
         <% } else { %>
-         <li>
+         <li style="border-bottom: 1px dashed #ccc;margin-bottom:10px;padding-bottom:10px;">
           <a href="<%=url_for(article.path)%>">
             <%=article.title || 'No Title'%>
           </a>

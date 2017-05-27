@@ -1,5 +1,11 @@
 
-<article id="post">
+<article id="post" 
+
+<% if(page.table == 'yes') { %>
+  class="htable"  
+<% } %>
+
+  style="padding-top:50px;padding-bottom:100px;border-bottom: 1px dashed #ccc;">
   <h1><%=page.title%>
   <a style="float: right;display:block;background-color:#e25440;color:#f8f8f8;width:60px;height:27px;text-align: center;border-radius:3px;" href="<%=config.root%>atom.xml" title="Rss" target="_blank">
       Rss
@@ -9,7 +15,7 @@
   <%-page.content%>
 </article>
 
-<div id="disqus_thread"></div>
+<div id="disqus_thread" ></div>
 <script>
 
 (function() { // DON'T EDIT BELOW THIS LINE

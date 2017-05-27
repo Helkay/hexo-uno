@@ -16,7 +16,6 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
-
 # Miscelaneous
 favicon: /favicon.ico
 
@@ -27,7 +26,6 @@ stylesheets:
 # scripts loaded in the end of the body
 scripts:
 - /js/hexo-uno.js
-
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
